@@ -1,0 +1,8 @@
+﻿Build started...
+------ Build started: Project: UniversityReports, Configuration: Debug ------
+Skipping 'FeeCollectionSummary.rdl'. Item is up to date.
+Building the report, StudentNationalityReport.rdl, for SQL Server 2016 Reporting Services.
+Build complete -- 0 errors, 0 warnings
+------ Deploy started: Project: UniversityReports, Configuration: Debug ------
+Deploying to http://localhost/reportserver
+Deploying report '/UniversityReports/FeeCollectionSummary'.

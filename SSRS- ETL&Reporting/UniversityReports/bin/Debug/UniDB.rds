@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="UniDB">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=ZAY\SQLZYDL;Initial Catalog=DataAnalytics_ETL_Dashboard</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>740c679c-eec7-496c-9c04-3b9b61ddac74</DataSourceID>
+</RptDataSource>

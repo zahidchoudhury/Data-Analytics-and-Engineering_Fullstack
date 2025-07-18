@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>UniDB</DataSourceReference>
+      <CommandText>SELECT 
+    f.[ FacultyID],
+    f.FullName AS FacultyName,
+    d.DepartmentName,
+    p.ProgramName,
+    f.Nationality,
+    s.MonthlySalary
+FROM Faculty f
+JOIN Department d ON f.DepartmentID = d.DepartmentID
+JOIN Program p ON f.ProgramID = p.ProgramID
+JOIN Salaries s ON f.[ FacultyID] = s.FacultyID
+ORDER BY d.DepartmentName, f.FullName;</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="ID_FacultyID">
+        <DataField> FacultyID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="FacultyName">
+        <DataField>FacultyName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DepartmentName">
+        <DataField>DepartmentName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ProgramName">
+        <DataField>ProgramName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Nationality">
+        <DataField>Nationality</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MonthlySalary">
+        <DataField>MonthlySalary</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="UniDB">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=ZAY\SQLZYDL;Initial Catalog=DataAnalytics_ETL_Dashboard</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>8837cdae-f77c-4d4b-b334-fa5f4721239d</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>UniDB</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>2bd7a30d-1bf7-4c07-9721-20ac52c2ee94</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Enrollmentandscholarshipsummary">
+      <Query>
+        <DataSourceName>UniDB</DataSourceName>
+        <CommandText>SELECT 
+    d.DepartmentName,
+    p.ProgramName,
+    COUNT(s.StudentID) AS TotalStudents,
+    SUM(CASE WHEN s.Scholarship = 'Yes' THEN 1 ELSE 0 END) AS ScholarshipStudents,
+    CASE WHEN COUNT(s.StudentID) = 0 THEN 0 
+         ELSE (SUM(CASE WHEN s.Scholarship = 'Yes' THEN 1 ELSE 0 END) * 100.0) / COUNT(s.StudentID)
+    END AS ScholarshipPercentage
+FROM Studentss s
+JOIN Program p ON s.ProgramID = p.ProgramID
+JOIN Department d ON p.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentName, p.ProgramName
+ORDER BY d.DepartmentName, p.ProgramName;
+</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="DepartmentName">
+          <DataField>DepartmentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProgramName">
+          <DataField>ProgramName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalStudents">
+          <DataField>TotalStudents</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ScholarshipStudents">
+          <DataField>ScholarshipStudents</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ScholarshipPercentage">
+          <DataField>ScholarshipPercentage</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>683c2fc2-2b37-4224-83b0-4a0d01cb9dc1</rd:ReportID>
+</Report>
