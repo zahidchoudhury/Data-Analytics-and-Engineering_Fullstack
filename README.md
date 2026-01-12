@@ -20,6 +20,7 @@ A comprehensive project covering ETL, Data Modelling, and Reporting using **SSIS
 ├── Power BI ➡ Power BI dashboards and reports
 ├── Other Power BI Projects ➡ Sample projects and practice reports
 ├── Power BI Reference ➡ Self-practice tutorials
+├── PySpark/ ➡ Big Data Processing using PySpark on Databricks
 ```
 
 ---
@@ -29,6 +30,7 @@ A comprehensive project covering ETL, Data Modelling, and Reporting using **SSIS
 * **Microsoft SQL Server Integration Services (SSIS)** — ETL Pipeline
 * **Microsoft SQL Server Reporting Services (SSRS)** — Paginated Reports
 * **Power BI** — Data Visualization & Interactive Reports
+* * **Apache PySpark (Databrick)** — Distributed Data Processing & Transformation
 
 ---
 
@@ -107,6 +109,16 @@ Data Model/ Schema: <img width="1202" height="756" alt="Data Model- Schema" src=
 
 * Open `.pbix` files in Power BI Desktop
 * Refresh data to see live results
+
+5️⃣  Big Data Processing with PySpark (Databricks)
+
+PySpark notebooks created and executed on Databricks
+
+Large datasets processed using distributed Spark DataFrames
+
+Applied transformations such as filtering, joins, aggregations, and derived metrics
+
+Prepared curated datasets for downstream analytics and reporting
 
 ---
 
