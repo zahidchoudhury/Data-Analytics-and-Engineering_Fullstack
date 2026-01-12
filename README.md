@@ -30,7 +30,7 @@ A comprehensive project covering ETL, Data Modelling, and Reporting using **SSIS
 * **Microsoft SQL Server Integration Services (SSIS)** — ETL Pipeline
 * **Microsoft SQL Server Reporting Services (SSRS)** — Paginated Reports
 * **Power BI** — Data Visualization & Interactive Reports
-* * **Apache PySpark (Databrick)** — Distributed Data Processing & Transformation
+* **Apache PySpark (Databrick)** — Distributed Data Processing & Transformation
 
 ---
 
